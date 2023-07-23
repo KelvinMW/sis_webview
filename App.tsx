@@ -1,10 +1,14 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LandingPage from './src/screens/LandingPage';
 import WebViewPage from './src/screens/WebViewPage';
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+  LandingPage: undefined;
+  WebViewPage: { domain: string };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
@@ -16,5 +20,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-export default App;
 
+export default App;
